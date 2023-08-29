@@ -9,7 +9,8 @@ const numberButtons = document.querySelectorAll('[number]');
 const operador = document.querySelectorAll('[operador]');
 const operadorDel = document.querySelector('[operador-del]');
 const allClearButtons = document.querySelector(".all-clear");
-const equalsButtons = document.querySelector(".all-clear");
+const equalsButtons = document.querySelector(".equals");
+
 
 // constructor
 
@@ -25,7 +26,8 @@ class Calculator {
 
         this.firstOperand = '';
         this.secondOperand = '';
-        this.operador = undefined;
+        this.operation = '';
+       
     }
 
     deleteDigit(){
@@ -34,6 +36,7 @@ class Calculator {
     }
 
     appendDigit(digit){
+       
         if(digit === '.' && this.secondOperand.includes('.')) return;
         if(digit === '0' && this.secondOperand === '0') return;
         if(digit === '.' && this.secondOperand === '') this.secondOperand ='0';
@@ -41,22 +44,55 @@ class Calculator {
        
     }
 
-    selectOperando(){
+    selectOperando(operation){
+        
+        if(this.secondOperand ==='' && operation === '-'){
+            this.appendDigit(operation);
+            return;
+        }
+        if(this.secondOperand === '') return;
+        if(this.firstOperand !== '') this.calculate();
 
+        this.operation = operation;
+        this.firstOperand = this.secondOperand;
+        this.secondOperand = '';
     }
 
     calculate(){
+      let result;
+      const first = parseFloat(this.firstOperand);
+      const second = parseFloat(this.secondOperand);
 
+      if(isNaN(second) || isNaN(first)) return;
+
+      switch (this.operation){
+        case '+':
+            result = first + second; break;
+        case '-':
+            result = first - second; break;
+        case '÷':
+            result = first / second; break;
+        case '*':
+            result = first * second; break;
+
+        default: return;
+      }
+
+      this.secondOperand = result.toString();
+      this.operation = '';
+      this.firstOperand = '';
     }
 
     updateDisplay(){
         this.displayFirstTextElement.innerText = this.secondOperand;
-        
+        if(this.firstOperand !== ''|| allClearButtons){ 
+            
+        this.displaySecondTextElement.innerText = `${this.firstOperand} ${this.operation}`;
+    };
+    
     }
 
-    equals(){
-
-    }
+  
 }
 
 //Class calculator
@@ -80,4 +116,16 @@ numberButtons.forEach(button =>{
         calculator.appendDigit(button.innerText);
         calculator.updateDisplay();
     })
+})
+
+operador.forEach(button =>{
+    button.addEventListener('click',()=>{
+        calculator.selectOperando(button.innerText);
+        calculator.updateDisplay();
+    })
+} )
+
+equalsButtons.addEventListener('click' ,()=>{
+    calculator.calculate();
+    calculator.updateDisplay();
 })
