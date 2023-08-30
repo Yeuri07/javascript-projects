@@ -1,17 +1,19 @@
 const nameSim = document.querySelector('.name');
 const picture = document.querySelector('[picture]');
 const reloadButton = document.querySelector('.refresh');
+const quotes_simpson = document.querySelector('[quotes]')
 
-const URL = 'https://thesimpsonsquoteapi.glitch.me/quotes';
+const URL_API = 'https://thesimpsonsquoteapi.glitch.me/quotes';
 
 function iniciarDatosApi(){
 
-fetch(URL)
+fetch(URL_API)
 .then((res) => res.json())
 .then((result) =>{
 
     nameSim.innerText = result[0].character;
-    picture.setAttribute('src', result[0].image)
+    picture.setAttribute('src', result[0].image);
+    quotes_simpson.innerText = result[0].quote;
    
 })
 .catch(console.error);
