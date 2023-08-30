@@ -36,7 +36,7 @@ class Calculator {
     }
 
     appendDigit(digit){
-       
+      
         if(digit === '.' && this.secondOperand.includes('.')) return;
         if(digit === '0' && this.secondOperand === '0') return;
         if(digit === '.' && this.secondOperand === '') this.secondOperand ='0';
@@ -46,11 +46,12 @@ class Calculator {
 
     selectOperando(operation){
         
-        if(this.secondOperand ==='' && operation === '-'){
+       
+        if(this.secondOperand === '' && operation === '-'){
             this.appendDigit(operation);
             return;
         }
-        if(this.secondOperand === '') return;
+        if(this.secondOperand === '-') return;
         if(this.firstOperand !== '') this.calculate();
 
         this.operation = operation;
@@ -62,7 +63,8 @@ class Calculator {
       let result;
       const first = parseFloat(this.firstOperand);
       const second = parseFloat(this.secondOperand);
-
+      console.log(first)
+      console.log(second)
       if(isNaN(second) || isNaN(first)) return;
 
       switch (this.operation){
