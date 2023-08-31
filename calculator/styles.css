@@ -34,6 +34,16 @@ body{
  word-break: break-all;
 }
 
+.display-first{
+    font-size: 1.3em;
+    text-align: right;
+}
+
+.display-second{
+    font-size: 1em;
+    text-align: right;
+}
+
 .two-space{
     grid-column: span 2;
 }
