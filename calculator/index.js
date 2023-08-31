@@ -1,7 +1,7 @@
 // DOM elements
     // 1. Display
-const displayFirstTextElement = document.querySelector('[display-first]');
-const displaySecondTextElement = document.querySelector('[display-second]');
+const displayFirstTextElement = document.querySelector('.display-first');
+const displaySecondTextElement = document.querySelector('.display-second');
 
 
     // 2. Buttons
