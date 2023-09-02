@@ -46,7 +46,7 @@ $mark-border: 10px solid $color-circler;
   
 }
 
-.circler::after {
+.circle::after {
     content: '';
     width: $mark-size;
     height: $mark-size;
