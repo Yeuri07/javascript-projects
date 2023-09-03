@@ -27,6 +27,7 @@ cellElement.forEach(element => {
     element.addEventListener('click', handleClick);
     
 }) 
+/* ----> FUNCTION <---- */
 
 function handleClick(e) {
     const cell = e.target;
@@ -40,20 +41,23 @@ function handleClick(e) {
 
     placeMark(cell,currenMark)
 
-   checkWin(currenMark);
+    if (isWin(currenMark)) {
+       alert(`WINS: ${currenMark}`)
+    }
+     else if(isDraw(currenMark)){
+        alert(`DRAW`)
+    }
 
  shiftChange = !shiftChange;
 
  }
-
 
  function placeMark(cell,markToAdd){
     cell.classList.add(markToAdd)
  }
 
  // Logic Win
-
- function checkWin(currenMark){
+ function isWin(currenMark){
     return win.some(conbination =>{
         return conbination.every(cell =>{
             return cellElement[cell].classList.contains(currenMark);
@@ -61,3 +65,11 @@ function handleClick(e) {
     })
  }
 
+ // Logic Draw
+ function isDraw(){
+
+    return [...cellElement].every(cell =>{
+        return cell.classList.contains(cross) ||
+        cell.classList.contains(circle);
+    })
+ }
