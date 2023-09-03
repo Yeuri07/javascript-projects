@@ -1,27 +1,40 @@
-$cell-size: 100%;
-$color-border: #2b2b29;
-$color-circler: #2b2b29;
-$mark-size: 70%;
-$mark-border: 10px solid $color-circler;
-$mark-border-hover: 10px solid gray;
+
+@use 'variables' as *;
 
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 *::after, *::before {
     box-sizing: border-box;
 }
 
+h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding: 2rem;
+    color: $color-text;
+}
+
+.container{
+    background-color: $color-container;
+    height: 100vh;
+}
 .board {
+    background-color: #fff;
+    border-radius: 21px;
     margin: 0 auto;
-    width: 40vw;
+    width: 35vw;
+    padding: 4rem;
     aspect-ratio: 1 / 1;
     display: grid;
     grid-template-columns: repeat(3,auto);
-  
+    
 
     .cell {
+       
         display: flex;
         border: solid 5px $color-border;
         height: $cell-size;
@@ -46,7 +59,6 @@ $mark-border-hover: 10px solid gray;
        
     }
  
-  
 }
 
 /*Hover the cross and circle*/

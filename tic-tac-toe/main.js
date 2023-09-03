@@ -1,4 +1,5 @@
-import './sass/main.scss'
+
+import'./sass/main.scss';
 
 /* DOM elements */
 const boardElemet = document.querySelector('[board]')
@@ -80,7 +81,8 @@ function handleClick(e) {
     }
 
  shiftChange = !shiftChange;
- setCellHover(shiftChange)
+ 
+ setCellHover(shiftChange);
  }
 
  function placeMark(cell,markToAdd){
