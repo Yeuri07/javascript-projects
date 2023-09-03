@@ -1,6 +1,7 @@
 import './sass/main.scss'
 
 /* DOM elements */
+const boardElemet = document.querySelector('[board]')
 const cellElement = document.querySelectorAll('.cell');
 
 /* GLOBALS */
@@ -21,13 +22,34 @@ const win = [
     [0,4,8]
 ]
 
+startGame();
+
 /* EVENT LISTENERS */
 cellElement.forEach(element => {
 
     element.addEventListener('click', handleClick);
     
 }) 
+
 /* ----> FUNCTION <---- */
+
+function startGame() {
+    startShiftChange();
+    setCellHover(shiftChange);
+ }
+ 
+function setCellHover(shiftChange){
+
+    shiftChange ?
+    boardElemet.classList.replace('circle-play', 'cross-play'):
+    boardElemet.classList.replace('cross-play', 'circle-play');
+
+ }
+
+ function startShiftChange(){
+   shiftChange ? boardElemet.classList.add('cross-play'):
+   boardElemet.classList.add('circle-play');
+ }
 
 function handleClick(e) {
     const cell = e.target;
@@ -49,7 +71,7 @@ function handleClick(e) {
     }
 
  shiftChange = !shiftChange;
-
+ setCellHover(shiftChange)
  }
 
  function placeMark(cell,markToAdd){
