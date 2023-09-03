@@ -36,8 +36,15 @@ cellElement.forEach(element => {
 function startGame() {
     startShiftChange();
     setCellHover(shiftChange);
+    
  }
  
+function endGame(){
+    cellElement.forEach(element =>{
+        element.classList.remove(cross);
+        element.classList.remove(circle);
+    })
+}
 function setCellHover(shiftChange){
 
     shiftChange ?
@@ -64,10 +71,12 @@ function handleClick(e) {
     placeMark(cell,currenMark)
 
     if (isWin(currenMark)) {
-       alert(`WINS: ${currenMark}`)
+       alert(`WINS: ${currenMark}`);
+       endGame();
     }
      else if(isDraw(currenMark)){
         alert(`DRAW`)
+        endGame();
     }
 
  shiftChange = !shiftChange;
