@@ -3,6 +3,7 @@ $color-border: #2b2b29;
 $color-circler: #2b2b29;
 $mark-size: 70%;
 $mark-border: 10px solid $color-circler;
+$mark-border-hover: 10px solid gray;
 
 *{
     box-sizing: border-box;
@@ -42,8 +43,43 @@ $mark-border: 10px solid $color-circler;
         &:nth-last-child(-n + 3){
             border-bottom:  none;
         }
+       
     }
+ 
   
+}
+
+/*Hover the cross and circle*/
+
+.circle::after,
+.board.circle-play .cell:not(.cross):not(.circle):hover::after {
+    content: '';
+    width: $mark-size;
+    height: $mark-size;
+    color: $color-circler;
+    border-radius: 50%;
+    border: $mark-border-hover;
+    position: absolute;
+    
+    
+}
+
+.board.circle-play .cell:not(.cross):not(.circle):hover::after{
+    border: $mark-border-hover;
+}
+
+.cross::after,
+.cross::before,
+.board.cross-play .cell:not(.cross):not(.circle):hover::after,
+.board.cross-play .cell:not(.cross):not(.circle):hover::before
+{
+    content: '';
+    width: 0;
+    height: $mark-size;
+    border-left: $mark-border-hover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
 }
 
 .circle::after {
@@ -67,9 +103,14 @@ $mark-border: 10px solid $color-circler;
     left: 50%;
 }
 
-.cross::after{
+.cross::after,
+.board.cross-play .cell:not(.cross):not(.circle):hover::after{
     transform: translate(-50%, -50%) rotate(45deg);
 }
-.cross::before{
+.cross::before,
+.board.cross-play .cell:not(.cross):not(.circle):hover::before{
     transform: translate(-50%, -50%) rotate(-45deg);
 }
+
+
+
