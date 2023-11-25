@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagos en Línea, Envíos de Fondos y Más | PayPal DO</title>
+    <link rel="icon" href="img/pp144.png">
+    <link rel="stylesheet" href="styles.css">
+    <script  src="index.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <div><img src="img/pp144.png" alt="" width="60px"><li>Home</li></div>
+                <li>Send</li>
+                <li>Wallet</li>
+                <li>Activity</li>
+                <li>Help</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="barra__superior">
+            <ul>
+                <li><p class="send">Send</p></li>
+                <li>Request</li>
+                <li>Contacts</li>
+                <li>More</li>
+            </ul>
+        </div>
+
+        <section class="form ">
+            <h1>Send payment to</h1>
+            <div class="search-bar">
+                <img src="img/icon_search.svg" alt="" class="fa-search">
+                <input class="input__text" type="text" placeholder="Name, @username,email or mobile">
+            </div>
+            <button  class="button" disabled>Next</button>
+        </section>
+
+        <section class="contacto ">
+            <div class="user flex__contacto">
+                <img src="img/usuer-icon.png" alt="" width="60px">
+                <p class="name"></p>
+            </div>
+            <div class="price flex__contacto">
+                <img src="img/price.png" alt="" width="15px">
+                <input type="text" class="input__cast" placeholder="0.00">
+            </div>
+            <div class="submit-button">
+                <button class="button usb">USD</button>
+            </div>
+
+            <div class="contacto__footer">
+                <p class="parrafo">For more information please read our <strong>user agreement.</strong></p>
+                <button class="button button-footer" disabled>Next</button>
+            </div>
+            
+        </section>
+
+        <section class="pago__final">
+            <div class="paypal-check">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="transparent"/>
+                    <path d="M25 50L40 65L75 30" stroke="green" stroke-width="4" fill="transparent"/>
+                </svg>
+
+                <p class="user-final"></p>
+
+                <div class="pago__button">
+                    <button class="button button-footer">Send more money</button>
+                    <p class="gohome">Go to summary</p>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+</body>
+</html>
